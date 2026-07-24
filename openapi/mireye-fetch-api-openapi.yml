@@ -1,0 +1,110 @@
+openapi: 3.1.0
+info:
+  title: Mireye Earth Ask Fetch API
+  description: Provenance-tagged geospatial data for US coordinates. POST /v1/fetch for deterministic field values; POST /v1/ask for natural-language Q&A; GET /v1/meta/fields for the catalog.
+  version: 0.14.0
+tags:
+- name: Fetch
+paths:
+  /v1/fetch:
+    post:
+      summary: Fetch
+      operationId: fetch_v1_fetch_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FetchRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      tags:
+      - Fetch
+components:
+  schemas:
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    FetchRequest:
+      properties:
+        lat:
+          type: number
+          title: Lat
+        lng:
+          type: number
+          title: Lng
+        fields:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Fields
+        preset:
+          anyOf:
+          - type: string
+            enum:
+            - terrain
+            - flood_risk
+            - wildfire_underwrite
+            - land_cover
+            - site_selection
+            - building_lookup
+            - points_of_interest
+            - utilities
+            - boundaries
+            - solar_siting
+            - wind_siting
+            - storage_siting
+            - data_center_siting
+            - grid_interconnect
+            - natural_hazard
+          - type: 'null'
+          title: Preset
+      type: object
+      required:
+      - lat
+      - lng
+      title: FetchRequest

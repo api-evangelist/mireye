@@ -1,0 +1,23 @@
+openapi: 3.1.0
+info:
+  title: Mireye Earth Ask .well Known API
+  description: Provenance-tagged geospatial data for US coordinates. POST /v1/fetch for deterministic field values; POST /v1/ask for natural-language Q&A; GET /v1/meta/fields for the catalog.
+  version: 0.14.0
+tags:
+- name: .well Known
+paths:
+  /.well-known/oauth-authorization-server:
+    get:
+      summary: Oauth Authorization Server Metadata
+      operationId: oauth_authorization_server_metadata__well_known_oauth_authorization_server_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                additionalProperties: true
+                type: object
+                title: Response Oauth Authorization Server Metadata  Well Known Oauth Authorization Server Get
+      tags:
+      - .well Known

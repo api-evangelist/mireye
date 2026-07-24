@@ -1,0 +1,56 @@
+openapi: 3.1.0
+info:
+  title: Mireye Earth Ask Oauth API
+  description: Provenance-tagged geospatial data for US coordinates. POST /v1/fetch for deterministic field values; POST /v1/ask for natural-language Q&A; GET /v1/meta/fields for the catalog.
+  version: 0.14.0
+tags:
+- name: Oauth
+paths:
+  /v1/oauth/register:
+    post:
+      summary: Register Client
+      operationId: register_client_v1_oauth_register_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+      tags:
+      - Oauth
+  /v1/oauth/authorize/complete:
+    post:
+      summary: Complete Authorization
+      operationId: complete_authorization_v1_oauth_authorize_complete_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+      tags:
+      - Oauth
+  /v1/oauth/token:
+    post:
+      summary: Token
+      operationId: token_v1_oauth_token_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+      tags:
+      - Oauth
+  /v1/oauth/revoke:
+    post:
+      summary: Revoke
+      operationId: revoke_v1_oauth_revoke_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+      tags:
+      - Oauth

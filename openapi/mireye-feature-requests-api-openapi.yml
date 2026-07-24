@@ -1,0 +1,96 @@
+openapi: 3.1.0
+info:
+  title: Mireye Earth Ask Feature Requests API
+  description: Provenance-tagged geospatial data for US coordinates. POST /v1/fetch for deterministic field values; POST /v1/ask for natural-language Q&A; GET /v1/meta/fields for the catalog.
+  version: 0.14.0
+tags:
+- name: Feature Requests
+paths:
+  /v1/feature-requests:
+    post:
+      summary: Create Feature Request
+      operationId: create_feature_request_v1_feature_requests_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FeatureRequestCreate'
+        required: true
+      responses:
+        '201':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                additionalProperties: true
+                type: object
+                title: Response Create Feature Request V1 Feature Requests Post
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      tags:
+      - Feature Requests
+components:
+  schemas:
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    FeatureRequestCreate:
+      properties:
+        title:
+          type: string
+          maxLength: 200
+          minLength: 1
+          title: Title
+        description:
+          anyOf:
+          - type: string
+            maxLength: 5000
+          - type: 'null'
+          title: Description
+        email:
+          anyOf:
+          - type: string
+            maxLength: 320
+          - type: 'null'
+          title: Email
+      additionalProperties: false
+      type: object
+      required:
+      - title
+      title: FeatureRequestCreate

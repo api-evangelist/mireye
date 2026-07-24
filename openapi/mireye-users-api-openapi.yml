@@ -1,0 +1,258 @@
+openapi: 3.1.0
+info:
+  title: Mireye Earth Ask Users API
+  description: Provenance-tagged geospatial data for US coordinates. POST /v1/fetch for deterministic field values; POST /v1/ask for natural-language Q&A; GET /v1/meta/fields for the catalog.
+  version: 0.14.0
+tags:
+- name: Users
+paths:
+  /v1/users/me:
+    get:
+      summary: Me
+      operationId: me_v1_users_me_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                additionalProperties: true
+                type: object
+                title: Response Me V1 Users Me Get
+      tags:
+      - Users
+    patch:
+      summary: Update Profile
+      operationId: update_profile_v1_users_me_patch
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProfilePatch'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                additionalProperties: true
+                type: object
+                title: Response Update Profile V1 Users Me Patch
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      tags:
+      - Users
+  /v1/users/me/settings:
+    patch:
+      summary: Update Settings
+      operationId: update_settings_v1_users_me_settings_patch
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SettingsPatch'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                additionalProperties: true
+                type: object
+                title: Response Update Settings V1 Users Me Settings Patch
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      tags:
+      - Users
+  /v1/users/me/tokens:
+    get:
+      summary: List Tokens
+      operationId: list_tokens_v1_users_me_tokens_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                additionalProperties: true
+                type: object
+                title: Response List Tokens V1 Users Me Tokens Get
+      tags:
+      - Users
+    post:
+      summary: Create Token
+      operationId: create_token_v1_users_me_tokens_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTokenRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                additionalProperties: true
+                type: object
+                title: Response Create Token V1 Users Me Tokens Post
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      tags:
+      - Users
+  /v1/users/me/tokens/{token_id}:
+    delete:
+      summary: Revoke Token
+      operationId: revoke_token_v1_users_me_tokens__token_id__delete
+      parameters:
+      - name: token_id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Token Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+                title: Response Revoke Token V1 Users Me Tokens  Token Id  Delete
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      tags:
+      - Users
+  /v1/users/me/tokens/{token_id}/reveal:
+    post:
+      summary: Reveal Token
+      operationId: reveal_token_v1_users_me_tokens__token_id__reveal_post
+      parameters:
+      - name: token_id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Token Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+                title: Response Reveal Token V1 Users Me Tokens  Token Id  Reveal Post
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      tags:
+      - Users
+components:
+  schemas:
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    ProfilePatch:
+      properties:
+        organization:
+          anyOf:
+          - type: string
+            maxLength: 200
+          - type: 'null'
+          title: Organization
+      additionalProperties: false
+      type: object
+      title: ProfilePatch
+    CreateTokenRequest:
+      properties:
+        name:
+          type: string
+          maxLength: 80
+          minLength: 1
+          title: Name
+      type: object
+      required:
+      - name
+      title: CreateTokenRequest
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    SettingsPatch:
+      properties:
+        default_lat:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Default Lat
+        default_lng:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Default Lng
+        default_question:
+          anyOf:
+          - type: string
+            maxLength: 2000
+          - type: 'null'
+          title: Default Question
+        email_updates_opt_in:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Email Updates Opt In
+      additionalProperties: false
+      type: object
+      title: SettingsPatch

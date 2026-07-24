@@ -1,0 +1,20 @@
+openapi: 3.1.0
+info:
+  title: Mireye Earth Ask Token API
+  description: Provenance-tagged geospatial data for US coordinates. POST /v1/fetch for deterministic field values; POST /v1/ask for natural-language Q&A; GET /v1/meta/fields for the catalog.
+  version: 0.14.0
+tags:
+- name: Token
+paths:
+  /token:
+    post:
+      summary: Token
+      operationId: token_token_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+      tags:
+      - Token

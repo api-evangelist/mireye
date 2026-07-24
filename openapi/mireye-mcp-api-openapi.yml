@@ -1,0 +1,135 @@
+openapi: 3.1.0
+info:
+  title: Mireye Earth Ask Mcp API
+  description: Provenance-tagged geospatial data for US coordinates. POST /v1/fetch for deterministic field values; POST /v1/ask for natural-language Q&A; GET /v1/meta/fields for the catalog.
+  version: 0.14.0
+tags:
+- name: Mcp
+paths:
+  /v1/mcp/device/start:
+    post:
+      summary: Start Device Flow
+      operationId: start_device_flow_v1_mcp_device_start_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                additionalProperties: true
+                type: object
+                title: Response Start Device Flow V1 Mcp Device Start Post
+      tags:
+      - Mcp
+  /v1/mcp/device/poll:
+    post:
+      summary: Poll Device Flow
+      operationId: poll_device_flow_v1_mcp_device_poll_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PollDeviceRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                additionalProperties: true
+                type: object
+                title: Response Poll Device Flow V1 Mcp Device Poll Post
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      tags:
+      - Mcp
+  /v1/mcp/device/approve:
+    post:
+      summary: Approve Device Flow
+      operationId: approve_device_flow_v1_mcp_device_approve_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApproveDeviceRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                additionalProperties: true
+                type: object
+                title: Response Approve Device Flow V1 Mcp Device Approve Post
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      tags:
+      - Mcp
+components:
+  schemas:
+    ApproveDeviceRequest:
+      properties:
+        user_code:
+          type: string
+          maxLength: 20
+          minLength: 4
+          title: User Code
+      type: object
+      required:
+      - user_code
+      title: ApproveDeviceRequest
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    PollDeviceRequest:
+      properties:
+        device_code:
+          type: string
+          minLength: 10
+          title: Device Code
+      type: object
+      required:
+      - device_code
+      title: PollDeviceRequest
