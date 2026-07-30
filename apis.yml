@@ -1,22 +1,390 @@
 aid: mireye
 name: Mireye
-description: Mireye is a company surfaced as a portfolio company of y-combinator and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Mireye is infrastructure for physical-world AI agents, turning any US latitude
+  and longitude into sourced, structured geospatial ground truth. Its Mireye Earth
+  API exposes two HTTP endpoints — POST /v1/fetch for deterministic per-field values
+  and POST /v1/ask for natural-language, citation-backed Q&A — plus GET /v1/meta/fields
+  for a self-describing catalog of 175+ fields across seven layers (terrain, land
+  cover, built environment, utilities and energy, climate and resource, hazards, and
+  parcels and boundaries) and 14 preset bundles. Every value carries provenance: the
+  source identifier, upstream URL, dataset vintage, timestamp, and a confidence rating,
+  sourced from federal agencies (USGS, NOAA, USDA, USFS, FEMA, EPA, EIA, NREL, US Census)
+  and open and commercial datasets (Sentinel-2, Overture Maps, Regrid). Mireye also runs
+  a hosted OAuth 2.1 MCP server (com.mireye/earth) and a local stdio adapter so agents in
+  Claude, Cursor, and custom loops can query the earth as easily as the web. Founded 2026
+  by Ansh Chokshi and Shashwat Kapoor; Y Combinator S26.
 url: https://raw.githubusercontent.com/api-evangelist/mireye/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://www.mireye.com/assets/favicon-Bk0nCQH7.svg
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - y-combinator
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: active
+x-tier-reason: enriched-provider
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
-apis: []
+- Geospatial
+- Geographic Information System
+- Location
+- AI Agents
+- Model Context Protocol
+- Government Data
+- Risk
+- Insurance
+- Data
+apis:
+- aid: mireye:mireye-ask-api
+  name: Mireye Ask API
+  description: The Ask API from Mireye — 2 operation(s) for ask.
+  humanURL: https://docs.mireye.ai
+  baseURL: https://api.mireye.com
+  tags:
+  - Ask
+  properties:
+  - type: OpenAPI
+    url: openapi/mireye-ask-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mireye.ai
+  - type: APIReference
+    url: https://docs.mireye.ai/api-reference
+  - type: GettingStarted
+    url: https://docs.mireye.ai/quickstart
+- aid: mireye:mireye-ask-site-api
+  name: Mireye Ask Site API
+  description: The Ask Site API from Mireye — 1 operation(s) for ask site.
+  humanURL: https://docs.mireye.ai
+  baseURL: https://api.mireye.com
+  tags:
+  - Ask Site
+  properties:
+  - type: OpenAPI
+    url: openapi/mireye-ask-site-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mireye.ai
+  - type: APIReference
+    url: https://docs.mireye.ai/api-reference
+  - type: GettingStarted
+    url: https://docs.mireye.ai/quickstart
+- aid: mireye:mireye-auth-api
+  name: Mireye Auth API
+  description: The Auth API from Mireye — 1 operation(s) for auth.
+  humanURL: https://docs.mireye.ai
+  baseURL: https://api.mireye.com
+  tags:
+  - Auth
+  properties:
+  - type: OpenAPI
+    url: openapi/mireye-auth-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mireye.ai
+  - type: APIReference
+    url: https://docs.mireye.ai/api-reference
+  - type: GettingStarted
+    url: https://docs.mireye.ai/quickstart
+- aid: mireye:mireye-authorize-api
+  name: Mireye Authorize API
+  description: The Authorize API from Mireye — 1 operation(s) for authorize.
+  humanURL: https://docs.mireye.ai
+  baseURL: https://api.mireye.com
+  tags:
+  - Authorize
+  properties:
+  - type: OpenAPI
+    url: openapi/mireye-authorize-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mireye.ai
+  - type: APIReference
+    url: https://docs.mireye.ai/api-reference
+  - type: GettingStarted
+    url: https://docs.mireye.ai/quickstart
+- aid: mireye:mireye-feature-requests-api
+  name: Mireye Feature Requests API
+  description: The Feature Requests API from Mireye — 1 operation(s) for feature requests.
+  humanURL: https://docs.mireye.ai
+  baseURL: https://api.mireye.com
+  tags:
+  - Feature Requests
+  properties:
+  - type: OpenAPI
+    url: openapi/mireye-feature-requests-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mireye.ai
+  - type: APIReference
+    url: https://docs.mireye.ai/api-reference
+  - type: GettingStarted
+    url: https://docs.mireye.ai/quickstart
+- aid: mireye:mireye-fetch-api
+  name: Mireye Fetch API
+  description: The Fetch API from Mireye — 1 operation(s) for fetch.
+  humanURL: https://docs.mireye.ai
+  baseURL: https://api.mireye.com
+  tags:
+  - Fetch
+  properties:
+  - type: OpenAPI
+    url: openapi/mireye-fetch-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mireye.ai
+  - type: APIReference
+    url: https://docs.mireye.ai/api-reference
+  - type: GettingStarted
+    url: https://docs.mireye.ai/quickstart
+- aid: mireye:mireye-healthz-api
+  name: Mireye Healthz API
+  description: The Healthz API from Mireye — 1 operation(s) for healthz.
+  humanURL: https://docs.mireye.ai
+  baseURL: https://api.mireye.com
+  tags:
+  - Healthz
+  properties:
+  - type: OpenAPI
+    url: openapi/mireye-healthz-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mireye.ai
+  - type: APIReference
+    url: https://docs.mireye.ai/api-reference
+  - type: GettingStarted
+    url: https://docs.mireye.ai/quickstart
+- aid: mireye:mireye-mcp-api
+  name: Mireye Mcp API
+  description: The Mcp API from Mireye — 3 operation(s) for mcp.
+  humanURL: https://docs.mireye.ai
+  baseURL: https://api.mireye.com
+  tags:
+  - Mcp
+  properties:
+  - type: OpenAPI
+    url: openapi/mireye-mcp-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mireye.ai
+  - type: APIReference
+    url: https://docs.mireye.ai/api-reference
+  - type: GettingStarted
+    url: https://docs.mireye.ai/quickstart
+- aid: mireye:mireye-meta-api
+  name: Mireye Meta API
+  description: The Meta API from Mireye — 1 operation(s) for meta.
+  humanURL: https://docs.mireye.ai
+  baseURL: https://api.mireye.com
+  tags:
+  - Meta
+  properties:
+  - type: OpenAPI
+    url: openapi/mireye-meta-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mireye.ai
+  - type: APIReference
+    url: https://docs.mireye.ai/api-reference
+  - type: GettingStarted
+    url: https://docs.mireye.ai/quickstart
+- aid: mireye:mireye-oauth-api
+  name: Mireye Oauth API
+  description: The Oauth API from Mireye — 4 operation(s) for oauth.
+  humanURL: https://docs.mireye.ai
+  baseURL: https://api.mireye.com
+  tags:
+  - Oauth
+  properties:
+  - type: OpenAPI
+    url: openapi/mireye-oauth-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mireye.ai
+  - type: APIReference
+    url: https://docs.mireye.ai/api-reference
+  - type: GettingStarted
+    url: https://docs.mireye.ai/quickstart
+- aid: mireye:mireye-readyz-api
+  name: Mireye Readyz API
+  description: The Readyz API from Mireye — 1 operation(s) for readyz.
+  humanURL: https://docs.mireye.ai
+  baseURL: https://api.mireye.com
+  tags:
+  - Readyz
+  properties:
+  - type: OpenAPI
+    url: openapi/mireye-readyz-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mireye.ai
+  - type: APIReference
+    url: https://docs.mireye.ai/api-reference
+  - type: GettingStarted
+    url: https://docs.mireye.ai/quickstart
+- aid: mireye:mireye-register-api
+  name: Mireye Register API
+  description: The Register API from Mireye — 1 operation(s) for register.
+  humanURL: https://docs.mireye.ai
+  baseURL: https://api.mireye.com
+  tags:
+  - Register
+  properties:
+  - type: OpenAPI
+    url: openapi/mireye-register-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mireye.ai
+  - type: APIReference
+    url: https://docs.mireye.ai/api-reference
+  - type: GettingStarted
+    url: https://docs.mireye.ai/quickstart
+- aid: mireye:mireye-revoke-api
+  name: Mireye Revoke API
+  description: The Revoke API from Mireye — 1 operation(s) for revoke.
+  humanURL: https://docs.mireye.ai
+  baseURL: https://api.mireye.com
+  tags:
+  - Revoke
+  properties:
+  - type: OpenAPI
+    url: openapi/mireye-revoke-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mireye.ai
+  - type: APIReference
+    url: https://docs.mireye.ai/api-reference
+  - type: GettingStarted
+    url: https://docs.mireye.ai/quickstart
+- aid: mireye:mireye-sites-api
+  name: Mireye Sites API
+  description: The Sites API from Mireye — 2 operation(s) for sites.
+  humanURL: https://docs.mireye.ai
+  baseURL: https://api.mireye.com
+  tags:
+  - Sites
+  properties:
+  - type: OpenAPI
+    url: openapi/mireye-sites-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mireye.ai
+  - type: APIReference
+    url: https://docs.mireye.ai/api-reference
+  - type: GettingStarted
+    url: https://docs.mireye.ai/quickstart
+- aid: mireye:mireye-token-api
+  name: Mireye Token API
+  description: The Token API from Mireye — 1 operation(s) for token.
+  humanURL: https://docs.mireye.ai
+  baseURL: https://api.mireye.com
+  tags:
+  - Token
+  properties:
+  - type: OpenAPI
+    url: openapi/mireye-token-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mireye.ai
+  - type: APIReference
+    url: https://docs.mireye.ai/api-reference
+  - type: GettingStarted
+    url: https://docs.mireye.ai/quickstart
+- aid: mireye:mireye-users-api
+  name: Mireye Users API
+  description: The Users API from Mireye — 5 operation(s) for users.
+  humanURL: https://docs.mireye.ai
+  baseURL: https://api.mireye.com
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/mireye-users-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mireye.ai
+  - type: APIReference
+    url: https://docs.mireye.ai/api-reference
+  - type: GettingStarted
+    url: https://docs.mireye.ai/quickstart
+- aid: mireye:mireye-well-known-api
+  name: Mireye .well Known API
+  description: The .well Known API from Mireye — 1 operation(s) for .well known.
+  humanURL: https://docs.mireye.ai
+  baseURL: https://api.mireye.com
+  tags:
+  - .well Known
+  properties:
+  - type: OpenAPI
+    url: openapi/mireye-well-known-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mireye.ai
+  - type: APIReference
+    url: https://docs.mireye.ai/api-reference
+  - type: GettingStarted
+    url: https://docs.mireye.ai/quickstart
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 18
+  pass: local-v1
+common:
+- type: DeveloperPortal
+  url: https://docs.mireye.ai
+- type: Documentation
+  url: https://docs.mireye.ai
+- type: APIReference
+  url: https://docs.mireye.ai/api-reference
+- type: GettingStarted
+  url: https://docs.mireye.ai/quickstart
+- type: SignUp
+  url: https://www.mireye.com
+- type: Pricing
+  url: https://www.mireye.com/pricing
+- type: TermsOfService
+  url: https://www.mireye.com/terms
+- type: PrivacyPolicy
+  url: https://www.mireye.com/privacy
+- type: Blog
+  url: https://www.mireye.com/blog
+- type: Support
+  url: https://docs.mireye.ai/mcp/troubleshooting
+- type: GitHubOrganization
+  url: https://github.com/Mireye-Labs
+- type: StatusPage
+  url: https://status.mireye.com
+- type: MCPServer
+  url: mcp/mireye-mcp.yml
+- type: LLMsTxt
+  url: llms/mireye-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
+- type: WellKnown
+  url: well-known/mireye-well-known.yml
+- type: Authentication
+  url: authentication/mireye-authentication.yml
+- type: OAuthScopes
+  url: scopes/mireye-scopes.yml
+- type: Conventions
+  url: conventions/mireye-conventions.yml
+- type: ErrorCatalog
+  url: errors/mireye-error-codes.yml
+- type: Lifecycle
+  url: lifecycle/mireye-lifecycle.yml
+- type: Conformance
+  url: conformance/mireye-conformance.yml
+- type: DataModel
+  url: data-model/mireye-data-model.yml
+- type: Overlay
+  url: overlays/mireye-openapi-overlay.yaml
+- type: CLI
+  url: cli/mireye-cli.yml
+- type: Packages
+  url: packages/mireye-packages.yml
+- type: DomainSecurity
+  url: security/mireye-domain-security.yml
+- type: AgenticAccess
+  url: agentic-access/mireye-agentic-access.yml
