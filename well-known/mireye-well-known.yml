@@ -1,0 +1,25 @@
+generated: '2026-07-20'
+method: searched
+host: https://api.mireye.com
+documents:
+- path: /.well-known/oauth-authorization-server
+  status: 200
+  file: mireye-oauth-authorization-server.json
+  note: RFC 8414 OAuth 2.0 Authorization Server Metadata (issuer https://api.mireye.com, scope mcp:tools, PKCE S256)
+- path: /.well-known/openid-configuration
+  status: 404
+- path: /.well-known/oauth-protected-resource
+  status: 404
+- path: /.well-known/security.txt
+  status: 404
+- path: /.well-known/api-catalog
+  status: 404
+other_hosts:
+- host: https://www.mireye.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+- host: https://docs.mireye.ai
+  documents:
+  - path: /.well-known/security.txt
+    status: 404

@@ -1,0 +1,51 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.mireye.ai/authentication
+docs: https://docs.mireye.ai/authentication
+note: >-
+  The published OpenAPI (openapi/mireye-openapi-original.json) declares no
+  components.securitySchemes, so this profile is captured from the docs auth page rather
+  than derived from the spec.
+summary:
+  types: [http, oauth2]
+  http_schemes: [bearer]
+  oauth2_flows: [authorizationCode]
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  bearer_format: JWT
+  description: >-
+    Dashboard-minted API token (JWT, 90-day default lifetime) sent as
+    `Authorization: Bearer <token>` on all /v1/ask, /v1/fetch, and /v1/users/me/* requests.
+    No API-key query params or custom headers.
+  applies_to: [POST /v1/ask, POST /v1/ask/stream, POST /v1/fetch, /v1/users/me/*]
+- name: mcpOAuth
+  type: oauth2
+  description: >-
+    OAuth 2.1 + PKCE for the hosted MCP endpoint (/mcp). MCP clients discover the
+    authorization server via /.well-known/oauth-authorization-server and complete a browser
+    flow automatically. Tokens are scoped to MCP tool calls and are NOT accepted as general
+    /v1/* API tokens.
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://api.mireye.com/authorize
+    tokenUrl: https://api.mireye.com/token
+    registrationUrl: https://api.mireye.com/register
+    revocationUrl: https://api.mireye.com/revoke
+    pkce: S256
+    scopes:
+      mcp:tools: Call Mireye MCP tools (mireye_ask, mireye_fetch)
+- name: deviceFlow
+  type: oauth2-device
+  description: >-
+    Device-authorization flow used by the local stdio adapter (`mireye-mcp login`):
+    POST /v1/mcp/device/start -> browser approval -> POST /v1/mcp/device/poll, storing an
+    API token in ~/.config/mireye-mcp/credentials.json bound to MIREYE_BASE_URL.
+public_endpoints:
+- GET /healthz
+- GET /readyz
+- GET /v1/meta/fields
+- GET /v1/openapi.json
+- GET /v1/docs
+identity_provider: Firebase (Google or email/password with verified address)

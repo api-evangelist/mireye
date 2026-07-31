@@ -1,0 +1,25 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Mireye Earth
+  version: 1.0.0
+extends: openapi/mireye-openapi-original.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-rating: 4
+    x-apievangelist-notes: >-
+      Provenance-tagged US geospatial data; hosted OAuth 2.1 MCP server plus two-endpoint
+      HTTP API. Strong agent-readiness (MCP, llms.txt, published Agent Skill). Gap: the
+      published OpenAPI declares no components.securitySchemes even though the docs require
+      Bearer/OAuth on all data routes.
+- target: $.info
+  update:
+    x-security-note: >-
+      Auth is documented at https://docs.mireye.ai/authentication (Bearer JWT for /v1/*,
+      OAuth 2.1 + PKCE for /mcp) but is not expressed as securitySchemes in this spec. A
+      follow-up should add bearerAuth (http/bearer, JWT) and apply it to the protected
+      operations (/v1/ask, /v1/ask/stream, /v1/fetch, /v1/users/me/*).
+- target: $.tags
+  update:
+  - name: geospatial
+    description: US coordinate-anchored geospatial ground truth with per-field provenance.

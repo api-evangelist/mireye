@@ -1,0 +1,31 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.mireye.ai/mcp/installation
+name: mireye-mcp
+summary: >-
+  First-party stdio MCP adapter and CLI for Mireye Earth. The binary is catalogued in
+  packages/mireye-packages.yml; this artifact captures its command surface.
+install:
+- uvx mireye-mcp
+- pip install 'mireye-mcp>=0.2.0'
+binary: mireye-mcp
+commands:
+- command: mireye-mcp
+  description: Run the stdio MCP server (default, spawned by the MCP client).
+- command: mireye-mcp login
+  description: One-time device-flow browser login; stores an API token at ~/.config/mireye-mcp/credentials.json bound to MIREYE_BASE_URL.
+- command: mireye-mcp status
+  description: Report the stored login / credential state.
+- command: mireye-mcp logout
+  description: Clear stored credentials.
+- command: mireye-mcp logout --revoke
+  description: Clear stored credentials and revoke the token server-side.
+environment:
+- name: MIREYE_BASE_URL
+  default: https://api.mireye.com
+- name: MIREYE_TIMEOUT_S
+  default: '120'
+- name: MIREYE_BEARER_TOKEN
+  default: unset
+- name: MIREYE_MCP_CREDENTIALS_FILE
+  default: ~/.config/mireye-mcp/credentials.json

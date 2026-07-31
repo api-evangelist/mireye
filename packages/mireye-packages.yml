@@ -1,0 +1,22 @@
+generated: '2026-07-20'
+method: searched
+source: https://pypi.org/project/mireye-mcp/
+packages:
+- language: python
+  registry: pypi
+  name: mireye-mcp
+  version: 0.2.0
+  url: https://pypi.org/project/mireye-mcp/
+  install: uvx mireye-mcp
+  repository: https://github.com/Mireye-Labs/mireye-earth-mcp
+  official: true
+  summary: >-
+    Official MCP server / stdio adapter and CLI for Mireye Earth — the first-party client
+    that wraps POST /v1/ask and POST /v1/fetch as MCP tools (mireye_ask, mireye_fetch) and
+    provides device-flow authentication (mireye-mcp login). Two runtime deps (httpx, mcp),
+    no native builds.
+notes: >-
+  Probed npm (mireye-mcp, @mireye/mcp — 404), PyPI (mireye 404; mireye-mcp 200). The
+  only published first-party package is the Python MCP adapter/CLI. No general-purpose
+  language SDKs (JS/Go/Ruby/etc.) are published as of this pass; direct HTTP is the
+  documented integration path alongside the MCP server.

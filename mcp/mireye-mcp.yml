@@ -1,0 +1,51 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.mireye.ai/mcp/installation
+status: published
+server:
+  name: com.mireye/earth
+  display_name: mireye-earth
+  transport: http
+  url: https://api.mireye.com/mcp
+  auth: OAuth 2.1 + PKCE (dynamic client registration; scope mcp:tools)
+  registry_status: publication to registry.modelcontextprotocol.io in flight
+local_adapter:
+  name: mireye-mcp
+  transport: stdio
+  install: uvx mireye-mcp
+  package: pypi:mireye-mcp
+  repository: https://github.com/Mireye-Labs/mireye-earth-mcp
+  auth: device-flow login (mireye-mcp login) or MIREYE_BEARER_TOKEN
+tools:
+- name: mireye_ask
+  description: Answer a natural-language question about a US coordinate with citations to authoritative federal data sources.
+  read_only: true
+  idempotent: true
+  source_operation: openapi/mireye-openapi-original.json#ask_v1_ask_post
+- name: mireye_fetch
+  description: Fetch exact catalog fields or preset bundles for a US coordinate with per-field provenance.
+  read_only: true
+  idempotent: true
+  source_operation: openapi/mireye-openapi-original.json#fetch_v1_fetch_post
+resources:
+- uri: mireye://catalog/fields
+  purpose: Full field catalog with descriptions, sources, hints, presets, and TTLs.
+- uri: mireye://catalog/presets
+  purpose: Preset names and their field expansions.
+- uri: mireye://catalog/us-envelope
+  purpose: Supported coordinate bounds.
+- uri: mireye://field/{name}
+  purpose: One field definition (e.g. mireye://field/elevation).
+- uri: mireye://preset/{name}
+  purpose: One preset expansion (e.g. mireye://preset/flood_risk).
+prompts:
+- name: mireye_ask
+- name: mireye_fetch
+- name: mireye_site_report
+- name: mireye_flood_check
+- name: mireye_wildfire_underwrite
+- name: mireye_pick_fields
+notes: >-
+  Callable tool list is intentionally two tools; catalog discovery is exposed as MCP
+  resources and common workflows as prompts. Tool errors carry code, message, http_status,
+  request_id, tool, and retryable fields.

@@ -1,0 +1,20 @@
+generated: '2026-07-20'
+method: searched
+skills:
+- file: mireye-earth.md
+  name: mireye-earth
+  method: searched
+  source: https://www.mireye.com/skills.md
+  version: 0.7.1
+  description: >-
+    Provider-published Agent Skill for Mireye Earth — how an agent should ask natural-language
+    questions (/v1/ask), fetch named fields or presets (/v1/fetch), and discover the catalog
+    (/v1/meta/fields), with provenance on every value.
+  api: openapi/mireye-openapi-original.json
+  operations: [ask_v1_ask_post, fetch_v1_fetch_post, meta_fields_v1_meta_fields_get]
+- file: mireye-flood-risk-check.md
+  name: Assess flood risk for a US coordinate
+  method: generated
+  description: Determine whether a US location is at flood risk using Mireye's flood_risk preset and cited /v1/ask answer.
+  api: openapi/mireye-openapi-original.json
+  operations: [meta_fields_v1_meta_fields_get, fetch_v1_fetch_post, ask_v1_ask_post]

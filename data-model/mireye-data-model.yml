@@ -1,0 +1,56 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/mireye-openapi-original.json + https://docs.mireye.ai/api-reference/field-catalog
+entities:
+- name: Coordinate
+  description: A US latitude/longitude the query is anchored to (lat [18,72], lng [-180,-65]).
+  key_fields: [lat, lng]
+- name: Field
+  description: One named catalog value (175+ across 7 layers) with provenance metadata.
+  key_fields: [name, value, unit, source, source_url, confidence, dataset_vintage, fetched_at, ttl_seconds, status, notes]
+- name: Preset
+  description: A named bundle that expands to a curated set of fields (14 presets).
+  key_fields: [name, fields]
+- name: Citation
+  description: One provenance/audit entry attached to a /v1/ask answer.
+  key_fields: [source, source_url, fields, fetched_at, confidence]
+- name: Site
+  description: A registered named location for repeated queries (/v1/sites, /v1/ask-site).
+  key_fields: [site_id, lat, lng]
+- name: User
+  description: An account (Firebase Google or verified email/password).
+  key_fields: [id, email, settings]
+- name: Token
+  description: A dashboard-minted API token (JWT, 90-day default) for HTTP API calls.
+  key_fields: [token_id, created_at, last_used_at, recoverable]
+- name: FeatureRequest
+  description: A user-submitted feature request (POST /v1/feature-requests).
+relationships:
+- from: Preset
+  to: Field
+  type: has_many
+  via: fields
+- from: Field
+  to: Citation
+  type: has_one
+  via: source
+- from: Site
+  to: Coordinate
+  type: has_one
+  via: [lat, lng]
+- from: User
+  to: Token
+  type: has_many
+  via: user
+- from: Coordinate
+  to: Field
+  type: has_many
+  via: fetch (POST /v1/fetch)
+layers:
+- Terrain
+- Land Cover
+- Built Environment
+- Utilities & Energy
+- Climate & Resource
+- Hazards
+- Parcels & Boundaries

@@ -1,0 +1,21 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.mireye.ai
+versioning:
+  scheme: uri-path
+  current: v1
+  api_version: 0.14.0
+  catalog_version: '0.7.1'
+  docs: https://docs.mireye.ai/quickstart
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No formal deprecation/Sunset policy published as of this pass. Docs note tool input schemas are stable within a minor version of mireye-mcp.
+sla:
+  url: null
+  note: V1 is early-adopter sized; no published uptime SLA. High-volume use cases directed to ansh@mireye.earth.
+status_page: https://status.mireye.com
+health_endpoints:
+- GET /healthz
+- GET /readyz
+deprecated_operations: []

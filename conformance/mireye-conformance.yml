@@ -1,0 +1,31 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/mireye-openapi-original.json + https://docs.mireye.ai/authentication + /.well-known/oauth-authorization-server
+standards:
+- id: oauth2
+  conforms: true
+  evidence: Hosted MCP endpoint uses OAuth 2.1 authorization-code flow (authorize/token/register/revoke endpoints).
+- id: oauth2.1-pkce
+  conforms: true
+  evidence: code_challenge_methods_supported [S256] in authorization-server metadata.
+- id: rfc8414-as-metadata
+  conforms: true
+  evidence: /.well-known/oauth-authorization-server returns 200 with issuer, endpoints, scopes.
+- id: rfc8628-device-flow
+  conforms: true
+  evidence: POST /v1/mcp/device/start + /poll + /approve device-authorization flow for the local adapter.
+- id: mcp
+  conforms: true
+  evidence: Hosted (com.mireye/earth, http transport) and stdio MCP server exposing mireye_ask and mireye_fetch tools, resources, and prompts.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: 'Errors use a custom {"detail": {"error", "message"}} envelope, not application/problem+json.'
+- id: openid-connect
+  conforms: false
+  evidence: No /.well-known/openid-configuration (404); Firebase handles identity but no OIDC discovery is published.
+- id: fapi
+  conforms: false
+- id: json-api
+  conforms: false
+- id: fhir
+  conforms: false

@@ -1,0 +1,20 @@
+generated: '2026-07-20'
+method: searched
+source: https://api.mireye.com/.well-known/oauth-authorization-server
+docs: https://docs.mireye.ai/authentication
+note: >-
+  Scopes captured from the RFC 8414 authorization-server metadata and the auth docs; the
+  OpenAPI declares no oauth2 securitySchemes so nothing was derivable from the spec.
+schemes:
+- name: mcpOAuth
+  source: https://api.mireye.com/.well-known/oauth-authorization-server
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://api.mireye.com/authorize
+    tokenUrl: https://api.mireye.com/token
+    code_challenge_methods: [S256]
+scopes:
+- scope: mcp:tools
+  description: Authorizes calls to Mireye's MCP tools (mireye_ask, mireye_fetch) via the hosted /mcp endpoint. Not valid for direct /v1/* HTTP API calls.
+  flows: [authorizationCode]
+  sources: ['https://api.mireye.com/.well-known/oauth-authorization-server']

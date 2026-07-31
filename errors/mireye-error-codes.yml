@@ -1,0 +1,86 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.mireye.ai/api-reference/errors
+docs: https://docs.mireye.ai/api-reference/errors
+format: custom-detail-object
+envelope:
+  shape: '{"detail": {"error": "<code>", "message": "<explanation>", ...optional context}}'
+  request_id_header: X-Request-ID
+  notes: >-
+    Every response except unhandled 500s carries X-Request-ID; clients may also send their
+    own X-Request-ID which the server echoes and binds to log lines. Not RFC 9457
+    application/problem+json.
+errors:
+- code: coord_out_of_bounds
+  http: 400
+  meaning: lat or lng is outside the US envelope.
+  recover: Validate caller-side against us_envelope from GET /v1/meta/fields.
+- code: no_fields_requested
+  http: 400
+  meaning: /v1/fetch called with neither fields nor preset.
+  recover: Provide at least one of fields or preset.
+- code: fields_unknown
+  http: 400
+  meaning: One or more requested field names are not in the catalog.
+  recover: Hit GET /v1/meta/fields, pick valid names. Context field fields_unknown[] lists the offenders.
+- code: fields_too_many
+  http: 400
+  meaning: Resolved field set (post-preset-expansion) exceeds 50.
+  recover: Drop the preset, split into multiple calls, or remove explicit fields.
+- code: ask_upstream_rate_limited
+  http: 429
+  meaning: '/v1/ask: the LLM API rate-limited the call.'
+  recover: Retry with backoff (retryable true).
+- code: ask_upstream_unreachable
+  http: 502
+  meaning: '/v1/ask: could not reach the LLM API.'
+  recover: Retry with backoff (retryable true).
+- code: ask_upstream_error
+  http: 502
+  meaning: '/v1/ask: the LLM API returned an error.'
+  recover: Retry only if retryable true (upstream 5xx).
+- code: ask_timeout
+  http: 504
+  meaning: /v1/ask exceeded the 110s end-to-end deadline.
+  recover: Retry; persistent timeouts mean a degraded upstream source.
+- code: auth_missing
+  http: 401
+  meaning: No Authorization header on a protected route.
+- code: auth_malformed
+  http: 401
+  meaning: Header present but not Bearer <token>.
+- code: auth_invalid
+  http: 401
+  meaning: Token is unknown, revoked, or fails verification.
+- code: auth_expired
+  http: 401
+  meaning: Firebase ID token has expired.
+  recover: Refresh and retry.
+- code: auth_revoked
+  http: 401
+  meaning: Firebase ID token was revoked.
+- code: provider_not_allowed
+  http: 403
+  meaning: Sign-in provider other than Google or email/password.
+- code: email_unverified
+  http: 403
+  meaning: Verify the account email before using Mireye.
+- code: user_disabled
+  http: 403
+  meaning: The Firebase user is disabled.
+- code: auth_method_not_allowed
+  http: 403
+  meaning: Route requires a browser (Firebase) session, e.g. token management called with an API token.
+- code: rate_limited
+  http: 429
+  meaning: Per-user limit hit (e.g. token reveals).
+  recover: Honor Retry-After.
+- code: account_store_misconfigured
+  http: 500
+  meaning: Server-side account-store misconfiguration; not caller-recoverable.
+validation_errors:
+  http: 422
+  note: FastAPI/Pydantic default shape (detail[] with type/loc/msg/input) for malformed request bodies.
+not_an_error:
+- Partial source failures in /v1/fetch are 200 OK with a populated partial_failures[] array (the "honesty pattern").
+- Low-confidence /v1/ask answers are 200 OK with confidence "low".

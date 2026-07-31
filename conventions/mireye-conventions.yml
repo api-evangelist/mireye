@@ -1,0 +1,48 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.mireye.ai
+docs: https://docs.mireye.ai
+authentication:
+  style: Bearer token (JWT) for HTTP API; OAuth 2.1 + PKCE for hosted MCP
+  header: 'Authorization: Bearer <token>'
+  see: authentication/mireye-authentication.yml
+idempotency:
+  supported: true
+  mechanism: read-only-by-design
+  detail: >-
+    The data surface is entirely read-only — /v1/fetch, /v1/ask, and GET /v1/meta/fields
+    are documented as idempotent (the two MCP tools mireye_ask and mireye_fetch are
+    explicitly "read-only and idempotent"). Repeated calls with the same coordinate and
+    field set return the same values (subject to per-field ttl_seconds). There is no
+    Idempotency-Key header because there are no state-mutating data writes to de-duplicate.
+pagination:
+  supported: false
+  detail: Single-coordinate lookups return a bounded field set (max 50 resolved fields per call); no list pagination.
+field_selection:
+  mechanism: request named fields and/or preset bundles; server unions and deduplicates, capped at 50 fields.
+  presets: 14 curated bundles (terrain, flood_risk, wildfire_underwrite, site_selection, ...)
+request_tracing:
+  header: X-Request-ID
+  behavior: Server generates and returns one on every response except unhandled 500s; client-supplied values are echoed and bound to server logs.
+versioning:
+  scheme: uri-path
+  current: v1
+  see: lifecycle/mireye-lifecycle.yml
+error_envelope:
+  shape: '{"detail": {"error": "<code>", "message": "<msg>"}}'
+  format: custom (not RFC 9457)
+  see: errors/mireye-error-codes.yml
+rate_limit_signaling:
+  detail: >-
+    V1 has no metered request quotas (account-based auth). Abuse-prevention limits exist on
+    unauthenticated device-flow starts and token reveals; those return 429 with Retry-After.
+provenance:
+  detail: >-
+    Every /v1/fetch field value carries value, unit, source, source_url, confidence,
+    dataset_vintage, fetched_at, ttl_seconds, status, and notes. Every /v1/ask answer
+    carries a citations[] array and fields_used[] for deterministic re-verification.
+coverage:
+  region: US only
+  envelope: 'lat [18, 72], lng [-180, -65]; CONUS, Alaska, Hawaii, US territories'
+caching:
+  detail: GET /v1/meta/fields is ETag-cached; re-fetch with If-None-Match is free.

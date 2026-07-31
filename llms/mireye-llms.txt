@@ -1,0 +1,22 @@
+# Mireye Earth
+
+## Docs
+
+- [POST /v1/ask](https://docs.mireye.ai/api-reference/ask.md): Natural-language Q&A over US coordinates with per-citation provenance.
+- [Errors](https://docs.mireye.ai/api-reference/errors.md): Structured error codes returned by /v1/* endpoints.
+- [POST /v1/fetch](https://docs.mireye.ai/api-reference/fetch.md): Deterministic per-field data fetch with full provenance.
+- [Field catalog](https://docs.mireye.ai/api-reference/field-catalog.md): Full reference of every field exposed by /v1/fetch and /v1/ask.
+- [GET /v1/meta/fields](https://docs.mireye.ai/api-reference/meta-fields.md): Self-discovery: field + preset catalog with ETag-based caching.
+- [Authentication](https://docs.mireye.ai/authentication.md): Bearer tokens for /v1/ask, /v1/fetch, and the hosted MCP endpoint.
+- [Introduction](https://docs.mireye.ai/introduction.md): Provenance-tagged geospatial data for any US coordinate.
+- [Install](https://docs.mireye.ai/mcp/installation.md): Wire Mireye Earth into Claude Desktop, Claude Code, Cursor, or a custom MCP agent.
+- [MCP tools, resources, and prompts](https://docs.mireye.ai/mcp/tools.md): Mireye's MCP surface: two tools, catalog resources, and workflow prompts.
+- [Troubleshooting](https://docs.mireye.ai/mcp/troubleshooting.md): Common failures wiring up the MCP server, and how to fix them.
+- [Quickstart](https://docs.mireye.ai/quickstart.md): Five minutes from zero to a cited answer about a US coordinate.
+- [Building agents](https://docs.mireye.ai/use-cases/agents.md): Wire Mireye into a Claude / Claude Code / Cursor / custom MCP agent in five minutes.
+- [Insurance underwriting](https://docs.mireye.ai/use-cases/insurance.md): Wildfire + flood risk underwriting with per-field federal-source citations.
+- [Commercial lending](https://docs.mireye.ai/use-cases/lending.md): Collateral assessment and site selection with federal-source provenance.
+
+## OpenAPI Specs
+
+- [openapi](https://api.mireye.com/v1/openapi.json)
