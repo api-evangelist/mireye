@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mireye Earth Ask Feature Requests API",
+    "version": "0.14.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Feature Requests",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create Feature Request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/feature-requests",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Feature Request"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

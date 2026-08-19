@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mireye Earth Ask Ask Site API",
+    "version": "0.14.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Ask Site",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Ask Site",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/ask-site",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Answer a question about a registered site — ONE Opus call over the\npersisted dossier. Never re-fetches; the sieve ran once at register time."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

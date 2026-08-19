@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mireye Earth Ask .well Known API",
+    "version": "0.14.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": ".well Known",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Oauth Authorization Server Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/.well-known/oauth-authorization-server"
+          },
+          "docs": "Oauth Authorization Server Metadata"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

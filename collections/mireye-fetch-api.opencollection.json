@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mireye Earth Ask Fetch API",
+    "version": "0.14.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Fetch",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/fetch",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Fetch"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

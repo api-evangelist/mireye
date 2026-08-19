@@ -1,0 +1,106 @@
+{
+  "item": [
+    {
+      "id": "9f69f2d0-0ed9-4c16-a16d-392679f56ab8",
+      "name": "Meta",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9802c5a2-6df5-48f2-8af4-31c9e3140f5a",
+          "name": "Meta Fields",
+          "request": {
+            "name": "Meta Fields",
+            "description": {
+              "content": "Return the public catalog + presets + US envelope.\n\n``?lifecycle=`` filters the listed fields (default hides ``experimental``;\n``all`` includes everything; or a specific lifecycle). Sets ETag +\nCache-Control so clients can skip re-download for an hour. Honors\nIf-None-Match → 304.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "meta",
+                "fields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b17799e2-a615-4b8c-aeca-8d8e93f7879f",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "meta",
+                    "fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "60231b4f-637b-48f4-aa10-4bc6104a4284",
+    "name": "Mireye Earth Ask Meta API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Provenance-tagged geospatial data for US coordinates. POST /v1/fetch for deterministic field values; POST /v1/ask for natural-language Q&A; GET /v1/meta/fields for the catalog.",
+      "type": "text/plain"
+    }
+  }
+}

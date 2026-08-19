@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mireye Earth Ask Meta API",
+    "version": "0.14.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Meta",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Meta Fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/meta/fields"
+          },
+          "docs": "Return the public catalog + presets + US envelope.\n\n``?lifecycle=`` filters the listed fields (default hides ``experimental``;\n``all`` includes everything; or a specific lifecycle). Sets ETag +\nCache-Control so clients can skip re-download for an hour. Honors\nIf-None-Match → 304."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

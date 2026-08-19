@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mireye Earth Ask Oauth API",
+    "version": "0.14.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Oauth",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Register Client",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/oauth/register"
+          },
+          "docs": "Register Client"
+        },
+        {
+          "info": {
+            "name": "Complete Authorization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/oauth/authorize/complete"
+          },
+          "docs": "Complete Authorization"
+        },
+        {
+          "info": {
+            "name": "Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/oauth/token"
+          },
+          "docs": "Token"
+        },
+        {
+          "info": {
+            "name": "Revoke",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/oauth/revoke"
+          },
+          "docs": "Revoke"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
