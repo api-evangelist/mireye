@@ -43,6 +43,17 @@ tags:
 - Geographic Information System
 - Location
 - AI Agents
+- MCP
+- Government Data
+- Risk
+- Insurance
+- Data
+tags_raw:
+- Company
+- Geospatial
+- Geographic Information System
+- Location
+- AI Agents
 - Model Context Protocol
 - Government Data
 - Risk
@@ -87,6 +98,8 @@ apis:
   humanURL: https://docs.mireye.ai
   baseURL: https://api.mireye.com
   tags:
+  - Authentication
+  tags_raw:
   - Auth
   properties:
   - type: OpenAPI
@@ -167,6 +180,8 @@ apis:
   humanURL: https://docs.mireye.ai
   baseURL: https://api.mireye.com
   tags:
+  - MCP
+  tags_raw:
   - Mcp
   properties:
   - type: OpenAPI
@@ -199,6 +214,8 @@ apis:
   humanURL: https://docs.mireye.ai
   baseURL: https://api.mireye.com
   tags:
+  - Authentication
+  tags_raw:
   - Oauth
   properties:
   - type: OpenAPI
@@ -295,6 +312,8 @@ apis:
   humanURL: https://docs.mireye.ai
   baseURL: https://api.mireye.com
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
