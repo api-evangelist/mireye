@@ -1,19 +1,16 @@
 aid: mireye
 name: Mireye
-description: >-
-  Mireye is infrastructure for physical-world AI agents, turning any US latitude
-  and longitude into sourced, structured geospatial ground truth. Its Mireye Earth
-  API exposes two HTTP endpoints — POST /v1/fetch for deterministic per-field values
-  and POST /v1/ask for natural-language, citation-backed Q&A — plus GET /v1/meta/fields
-  for a self-describing catalog of 175+ fields across seven layers (terrain, land
-  cover, built environment, utilities and energy, climate and resource, hazards, and
-  parcels and boundaries) and 14 preset bundles. Every value carries provenance: the
-  source identifier, upstream URL, dataset vintage, timestamp, and a confidence rating,
-  sourced from federal agencies (USGS, NOAA, USDA, USFS, FEMA, EPA, EIA, NREL, US Census)
-  and open and commercial datasets (Sentinel-2, Overture Maps, Regrid). Mireye also runs
-  a hosted OAuth 2.1 MCP server (com.mireye/earth) and a local stdio adapter so agents in
-  Claude, Cursor, and custom loops can query the earth as easily as the web. Founded 2026
-  by Ansh Chokshi and Shashwat Kapoor; Y Combinator S26.
+description: 'Mireye is infrastructure for physical-world AI agents, turning any US latitude and longitude
+  into sourced, structured geospatial ground truth. Its Mireye Earth API exposes two HTTP endpoints —
+  POST /v1/fetch for deterministic per-field values and POST /v1/ask for natural-language, citation-backed
+  Q&A — plus GET /v1/meta/fields for a self-describing catalog of 175+ fields across seven layers (terrain,
+  land cover, built environment, utilities and energy, climate and resource, hazards, and parcels and
+  boundaries) and 14 preset bundles. Every value carries provenance: the source identifier, upstream URL,
+  dataset vintage, timestamp, and a confidence rating, sourced from federal agencies (USGS, NOAA, USDA,
+  USFS, FEMA, EPA, EIA, NREL, US Census) and open and commercial datasets (Sentinel-2, Overture Maps,
+  Regrid). Mireye also runs a hosted OAuth 2.1 MCP server (com.mireye/earth) and a local stdio adapter
+  so agents in Claude, Cursor, and custom loops can query the earth as easily as the web. Founded 2026
+  by Ansh Chokshi and Shashwat Kapoor; Y Combinator S26.'
 url: https://raw.githubusercontent.com/api-evangelist/mireye/refs/heads/main/apis.yml
 deliveryModel:
   model: saas
@@ -48,7 +45,7 @@ x-tier: active
 x-tier-reason: enriched-provider
 specificationVersion: '0.23'
 created: '2026-07-17'
-modified: '2026-07-20'
+modified: '2026-09-16'
 tags:
 - Company
 - Geospatial
@@ -363,6 +360,8 @@ x-enrichment:
   artifacts_added: 18
   pass: local-v1
 common:
+- type: Website
+  url: https://mireye.ai
 - type: DeveloperPortal
   url: https://docs.mireye.ai
 - type: Documentation
