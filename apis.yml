@@ -217,24 +217,6 @@ apis:
     url: https://docs.mireye.ai/api-reference
   - type: GettingStarted
     url: https://docs.mireye.ai/quickstart
-- aid: mireye:mireye-oauth-api
-  name: Mireye Oauth API
-  description: The Oauth API from Mireye — 4 operation(s) for oauth.
-  humanURL: https://docs.mireye.ai
-  baseURL: https://api.mireye.com
-  tags:
-  - Authentication
-  tags_raw:
-  - Oauth
-  properties:
-  - type: OpenAPI
-    url: openapi/mireye-oauth-api-openapi.yml
-  - type: Documentation
-    url: https://docs.mireye.ai
-  - type: APIReference
-    url: https://docs.mireye.ai/api-reference
-  - type: GettingStarted
-    url: https://docs.mireye.ai/quickstart
 - aid: mireye:mireye-readyz-api
   name: Mireye Readyz API
   description: The Readyz API from Mireye — 1 operation(s) for readyz.
@@ -343,6 +325,22 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/mireye-well-known-api-openapi.yml
+  - type: Documentation
+    url: https://docs.mireye.ai
+  - type: APIReference
+    url: https://docs.mireye.ai/api-reference
+  - type: GettingStarted
+    url: https://docs.mireye.ai/quickstart
+- aid: mireye:mireye-oauth-api
+  name: Mireye OAUTH API
+  description: The Oauth API from Mireye — 4 operation(s) for oauth.
+  humanURL: https://docs.mireye.ai
+  baseURL: https://api.mireye.com
+  tags:
+  - Oauth
+  properties:
+  - type: OpenAPI
+    url: openapi/mireye-oauth-api-openapi.yml
   - type: Documentation
     url: https://docs.mireye.ai
   - type: APIReference
