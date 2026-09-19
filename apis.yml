@@ -287,6 +287,8 @@ apis:
   humanURL: https://docs.mireye.ai
   baseURL: https://api.mireye.com
   tags:
+  - Tokens
+  tags_raw:
   - Token
   properties:
   - type: OpenAPI
@@ -337,6 +339,8 @@ apis:
   humanURL: https://docs.mireye.ai
   baseURL: https://api.mireye.com
   tags:
+  - Authentication
+  tags_raw:
   - Oauth
   properties:
   - type: OpenAPI
