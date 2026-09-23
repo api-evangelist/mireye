@@ -1,10 +1,10 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Mireye Earth Ask Mcp API
+  title: Mireye Earth MCP API
   description: Provenance-tagged geospatial data for US coordinates. POST /v1/fetch for deterministic field values; POST /v1/ask for natural-language Q&A; GET /v1/meta/fields for the catalog.
   version: 0.14.0
 tags:
-- name: Mcp
+- name: MCP
 paths:
   /v1/mcp/device/start:
     post:
@@ -20,7 +20,7 @@ paths:
                 type: object
                 title: Response Start Device Flow V1 Mcp Device Start Post
       tags:
-      - Mcp
+      - MCP
   /v1/mcp/device/poll:
     post:
       summary: Poll Device Flow
@@ -47,7 +47,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
       tags:
-      - Mcp
+      - MCP
   /v1/mcp/device/approve:
     post:
       summary: Approve Device Flow
@@ -74,7 +74,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
       tags:
-      - Mcp
+      - MCP
 components:
   schemas:
     ApproveDeviceRequest:
@@ -88,6 +88,25 @@ components:
       required:
       - user_code
       title: ApproveDeviceRequest
+    PollDeviceRequest:
+      properties:
+        device_code:
+          type: string
+          minLength: 10
+          title: Device Code
+      type: object
+      required:
+      - device_code
+      title: PollDeviceRequest
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     ValidationError:
       properties:
         loc:
@@ -114,22 +133,3 @@ components:
       - msg
       - type
       title: ValidationError
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    PollDeviceRequest:
-      properties:
-        device_code:
-          type: string
-          minLength: 10
-          title: Device Code
-      type: object
-      required:
-      - device_code
-      title: PollDeviceRequest

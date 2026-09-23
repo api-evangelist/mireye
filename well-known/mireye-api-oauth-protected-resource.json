@@ -1,0 +1,1 @@
+{"resource":"https://api.mireye.com/mcp","authorization_servers":["https://api.mireye.com/"],"scopes_supported":["mcp:tools"],"bearer_methods_supported":["header"]}
