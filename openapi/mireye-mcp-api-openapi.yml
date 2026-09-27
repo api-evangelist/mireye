@@ -88,6 +88,15 @@ components:
       required:
       - user_code
       title: ApproveDeviceRequest
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     PollDeviceRequest:
       properties:
         device_code:
@@ -98,15 +107,6 @@ components:
       required:
       - device_code
       title: PollDeviceRequest
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
     ValidationError:
       properties:
         loc:

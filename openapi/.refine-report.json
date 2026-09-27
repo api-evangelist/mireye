@@ -22,9 +22,7 @@
     "mireye-token-api-openapi.yml",
     "mireye-users-api-openapi.yml"
   ],
-  "archived": [
-    "deleted 1 superseded output(s) from the previous generation"
-  ],
+  "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
@@ -77,8 +75,7 @@
     "mireye-openapi-original.json: declared missing tag: Sites",
     "mireye-openapi-original.json: declared missing tag: Token",
     "mireye-openapi-original.json: declared missing tag: Users",
-    "superseded outputs removed: mireye-o-auth-api-openapi.yml",
-    "apis.yml register: written (+1 apis, 17 total)"
+    "apis.yml register: already-registered"
   ],
   "skipped": [
     "mireye-ask-api-openapi.yml: previously refined output, superseded by openapi/_original/",
@@ -90,7 +87,7 @@
     "mireye-healthz-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "mireye-mcp-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "mireye-meta-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "mireye-o-auth-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mireye-oauth-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "mireye-readyz-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "mireye-register-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "mireye-revoke-api-openapi.yml: previously refined output, superseded by openapi/_original/",

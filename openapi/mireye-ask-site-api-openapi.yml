@@ -44,23 +44,6 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
-    AskSiteRequest:
-      properties:
-        site_id:
-          type: string
-          maxLength: 64
-          minLength: 4
-          title: Site Id
-        question:
-          type: string
-          maxLength: 2000
-          minLength: 1
-          title: Question
-      type: object
-      required:
-      - site_id
-      - question
-      title: AskSiteRequest
     ValidationError:
       properties:
         loc:
@@ -87,3 +70,20 @@ components:
       - msg
       - type
       title: ValidationError
+    AskSiteRequest:
+      properties:
+        site_id:
+          type: string
+          maxLength: 64
+          minLength: 4
+          title: Site Id
+        question:
+          type: string
+          maxLength: 2000
+          minLength: 1
+          title: Question
+      type: object
+      required:
+      - site_id
+      - question
+      title: AskSiteRequest
