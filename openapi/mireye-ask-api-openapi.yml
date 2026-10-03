@@ -58,38 +58,6 @@ paths:
       - Ask
 components:
   schemas:
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    AskRequest:
-      properties:
-        lat:
-          type: number
-          title: Lat
-        lng:
-          type: number
-          title: Lng
-        question:
-          type: string
-          maxLength: 2000
-          minLength: 1
-          title: Question
-        include_trace:
-          type: boolean
-          title: Include Trace
-          default: false
-      type: object
-      required:
-      - lat
-      - lng
-      - question
-      title: AskRequest
     ValidationError:
       properties:
         loc:
@@ -116,3 +84,35 @@ components:
       - msg
       - type
       title: ValidationError
+    AskRequest:
+      properties:
+        lat:
+          type: number
+          title: Lat
+        lng:
+          type: number
+          title: Lng
+        question:
+          type: string
+          maxLength: 2000
+          minLength: 1
+          title: Question
+        include_trace:
+          type: boolean
+          title: Include Trace
+          default: false
+      type: object
+      required:
+      - lat
+      - lng
+      - question
+      title: AskRequest
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError

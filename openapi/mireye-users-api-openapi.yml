@@ -173,6 +173,17 @@ paths:
       - Users
 components:
   schemas:
+    CreateTokenRequest:
+      properties:
+        name:
+          type: string
+          maxLength: 80
+          minLength: 1
+          title: Name
+      type: object
+      required:
+      - name
+      title: CreateTokenRequest
     HTTPValidationError:
       properties:
         detail:
@@ -182,32 +193,6 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
-    SettingsPatch:
-      properties:
-        default_lat:
-          anyOf:
-          - type: number
-          - type: 'null'
-          title: Default Lat
-        default_lng:
-          anyOf:
-          - type: number
-          - type: 'null'
-          title: Default Lng
-        default_question:
-          anyOf:
-          - type: string
-            maxLength: 2000
-          - type: 'null'
-          title: Default Question
-        email_updates_opt_in:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Email Updates Opt In
-      additionalProperties: false
-      type: object
-      title: SettingsPatch
     ValidationError:
       properties:
         loc:
@@ -245,14 +230,29 @@ components:
       additionalProperties: false
       type: object
       title: ProfilePatch
-    CreateTokenRequest:
+    SettingsPatch:
       properties:
-        name:
-          type: string
-          maxLength: 80
-          minLength: 1
-          title: Name
+        default_lat:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Default Lat
+        default_lng:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Default Lng
+        default_question:
+          anyOf:
+          - type: string
+            maxLength: 2000
+          - type: 'null'
+          title: Default Question
+        email_updates_opt_in:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Email Updates Opt In
+      additionalProperties: false
       type: object
-      required:
-      - name
-      title: CreateTokenRequest
+      title: SettingsPatch

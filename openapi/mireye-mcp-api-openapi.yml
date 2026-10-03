@@ -88,25 +88,6 @@ components:
       required:
       - user_code
       title: ApproveDeviceRequest
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    PollDeviceRequest:
-      properties:
-        device_code:
-          type: string
-          minLength: 10
-          title: Device Code
-      type: object
-      required:
-      - device_code
-      title: PollDeviceRequest
     ValidationError:
       properties:
         loc:
@@ -133,3 +114,22 @@ components:
       - msg
       - type
       title: ValidationError
+    PollDeviceRequest:
+      properties:
+        device_code:
+          type: string
+          minLength: 10
+          title: Device Code
+      type: object
+      required:
+      - device_code
+      title: PollDeviceRequest
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
