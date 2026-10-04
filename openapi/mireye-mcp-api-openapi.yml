@@ -77,17 +77,25 @@ paths:
       - MCP
 components:
   schemas:
-    ApproveDeviceRequest:
+    PollDeviceRequest:
       properties:
-        user_code:
+        device_code:
           type: string
-          maxLength: 20
-          minLength: 4
-          title: User Code
+          minLength: 10
+          title: Device Code
       type: object
       required:
-      - user_code
-      title: ApproveDeviceRequest
+      - device_code
+      title: PollDeviceRequest
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     ValidationError:
       properties:
         loc:
@@ -114,22 +122,14 @@ components:
       - msg
       - type
       title: ValidationError
-    PollDeviceRequest:
+    ApproveDeviceRequest:
       properties:
-        device_code:
+        user_code:
           type: string
-          minLength: 10
-          title: Device Code
+          maxLength: 20
+          minLength: 4
+          title: User Code
       type: object
       required:
-      - device_code
-      title: PollDeviceRequest
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
+      - user_code
+      title: ApproveDeviceRequest

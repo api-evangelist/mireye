@@ -62,6 +62,25 @@ paths:
       - Sites
 components:
   schemas:
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    SiteRegisterRequest:
+      properties:
+        site:
+          additionalProperties: true
+          type: object
+          title: Site
+      type: object
+      required:
+      - site
+      title: SiteRegisterRequest
     ValidationError:
       properties:
         loc:
@@ -88,22 +107,3 @@ components:
       - msg
       - type
       title: ValidationError
-    SiteRegisterRequest:
-      properties:
-        site:
-          additionalProperties: true
-          type: object
-          title: Site
-      type: object
-      required:
-      - site
-      title: SiteRegisterRequest
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
