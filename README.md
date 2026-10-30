@@ -64,6 +64,159 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Mireye is a company surfaced as a portfolio company of y-combinator and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Mireye is infrastructure for physical-world AI agents, turning any US latitude and longitude into sourced, structured geospatial ground truth. Its Mireye Earth API exposes two HTTP endpoints — POST /v1/fetch for deterministic per-field values and POST /v1/ask for natural-language, citation-backed Q&A — plus GET /v1/meta/fields for a self-describing catalog of 175+ fields across seven layers (terrain, land cover, built environment, utilities and energy, climate and resource, hazards, and parcels and boundaries) and 14 preset bundles. Every value carries provenance: the source identifier, upstream URL, dataset vintage, timestamp, and a confidence rating, sourced from federal agencies (USGS, NOAA, USDA, USFS, FEMA, EPA, EIA, NREL, US Census) and open and commercial datasets (Sentinel-2, Overture Maps, Regrid). Mireye also runs a hosted OAuth 2.1 MCP server (com.mireye/earth) and a local stdio adapter so agents in Claude, Cursor, and custom loops can query the earth as easily as the web. Founded 2026 by Ansh Chokshi and Shashwat Kapoor; Y Combinator S26.
 
-Backed by: y-combinator
+**Areas:** Company · Geospatial · Geographic Information System · Location · AI Agents · MCP · Government Data · Risk Management · Insurance · Data
+
+## Mireye on APIs.io
+
+Everything profiled for Mireye is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/mireye/](https://apis.io/providers/mireye/)** — or go straight to one of the APIs or properties below.
+
+### APIs (17)
+
+- [Mireye Ask API](https://apis.io/apis/mireye/mireye-ask-api/) — The Ask API from Mireye — 2 operation(s) for ask.
+- [Mireye Ask Site API](https://apis.io/apis/mireye/mireye-ask-site-api/) — The Ask Site API from Mireye — 1 operation(s) for ask site.
+- [Mireye Auth API](https://apis.io/apis/mireye/mireye-auth-api/) — The Auth API from Mireye — 1 operation(s) for auth.
+- [Mireye Authorize API](https://apis.io/apis/mireye/mireye-authorize-api/) — The Authorize API from Mireye — 1 operation(s) for authorize.
+- [Mireye Feature Requests API](https://apis.io/apis/mireye/mireye-feature-requests-api/) — The Feature Requests API from Mireye — 1 operation(s) for feature requests.
+- [Mireye Fetch API](https://apis.io/apis/mireye/mireye-fetch-api/) — The Fetch API from Mireye — 1 operation(s) for fetch.
+- [Mireye Healthz API](https://apis.io/apis/mireye/mireye-healthz-api/) — The Healthz API from Mireye — 1 operation(s) for healthz.
+- [Mireye Mcp API](https://apis.io/apis/mireye/mireye-mcp-api/) — The Mcp API from Mireye — 3 operation(s) for mcp.
+- [Mireye Meta API](https://apis.io/apis/mireye/mireye-meta-api/) — The Meta API from Mireye — 1 operation(s) for meta.
+- [Mireye Readyz API](https://apis.io/apis/mireye/mireye-readyz-api/) — The Readyz API from Mireye — 1 operation(s) for readyz.
+- [Mireye Register API](https://apis.io/apis/mireye/mireye-register-api/) — The Register API from Mireye — 1 operation(s) for register.
+- [Mireye Revoke API](https://apis.io/apis/mireye/mireye-revoke-api/) — The Revoke API from Mireye — 1 operation(s) for revoke.
+- [Mireye Sites API](https://apis.io/apis/mireye/mireye-sites-api/) — The Sites API from Mireye — 2 operation(s) for sites.
+- [Mireye Token API](https://apis.io/apis/mireye/mireye-token-api/) — The Token API from Mireye — 1 operation(s) for token.
+- [Mireye Users API](https://apis.io/apis/mireye/mireye-users-api/) — The Users API from Mireye — 5 operation(s) for users.
+- [Mireye .well Known API](https://apis.io/apis/mireye/mireye-well-known-api/) — The .well Known API from Mireye — 1 operation(s) for .well known.
+- [Mireye OAUTH API](https://apis.io/apis/mireye/mireye-oauth-api/) — The Oauth API from Mireye — 4 operation(s) for oauth.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [com.mireye/earth](https://apis.io/servers/mireye/com-mireye-earth/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Mireye Agentic Access](https://apis.io/agentic-access/mireye/mireye-agentic-access/)
+
+#### Collections (17)
+
+Postman and Open Collection request collections.
+
+- [Mireye Earth Ask API](https://apis.io/collections/mireye/open-mireye-ask-api/)
+- [Mireye Earth Ask Ask Site API](https://apis.io/collections/mireye/open-mireye-ask-site-api/)
+- [Mireye Earth Ask Auth API](https://apis.io/collections/mireye/open-mireye-auth-api/)
+- [Mireye Earth Ask Authorize API](https://apis.io/collections/mireye/open-mireye-authorize-api/)
+- [Mireye Earth Ask Feature Requests API](https://apis.io/collections/mireye/open-mireye-feature-requests-api/)
+- [Mireye Earth Ask Fetch API](https://apis.io/collections/mireye/open-mireye-fetch-api/)
+- [Mireye Earth Ask Healthz API](https://apis.io/collections/mireye/open-mireye-healthz-api/)
+- [Mireye Earth Ask Mcp API](https://apis.io/collections/mireye/open-mireye-mcp-api/)
+- [Mireye Earth Ask Meta API](https://apis.io/collections/mireye/open-mireye-meta-api/)
+- [Mireye Earth Ask Oauth API](https://apis.io/collections/mireye/open-mireye-oauth-api/)
+- [Mireye Earth Ask Readyz API](https://apis.io/collections/mireye/open-mireye-readyz-api/)
+- [Mireye Earth Ask Register API](https://apis.io/collections/mireye/open-mireye-register-api/)
+- [Mireye Earth Ask Revoke API](https://apis.io/collections/mireye/open-mireye-revoke-api/)
+- [Mireye Earth Ask Sites API](https://apis.io/collections/mireye/open-mireye-sites-api/)
+- [Mireye Earth Ask Token API](https://apis.io/collections/mireye/open-mireye-token-api/)
+- [Mireye Earth Ask Users API](https://apis.io/collections/mireye/open-mireye-users-api/)
+- [Mireye Earth Ask .well Known API](https://apis.io/collections/mireye/open-mireye-well-known-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Mireye Openapi Overlay](https://apis.io/overlays/mireye/mireye-openapi-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Mireye Authentication](https://apis.io/security/mireye/mireye-authentication/)
+- [Mireye Domain Security](https://apis.io/security/mireye/mireye-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Mireye Scopes](https://apis.io/scopes/mireye/mireye-scopes/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://mireye.ai)
+- [Documentation](https://docs.mireye.ai)
+- [Getting started](https://docs.mireye.ai/quickstart)
+- [API reference](https://docs.mireye.ai/api-reference)
+- [Pricing](https://www.mireye.com/pricing)
+- [Sign up](https://www.mireye.com)
+- [Support](https://docs.mireye.ai/mcp/troubleshooting)
+- [Blog](https://www.mireye.com/blog)
+- [Terms of service](https://www.mireye.com/terms)
+- [Privacy policy](https://www.mireye.com/privacy)
+- [GitHub](https://github.com/Mireye-Labs)
+- [Status](https://status.mireye.com)
+
+## API Evangelist rating
+
+**Kin Score 45.1** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 75.0 |
+| Contract quality | 35.4 |
+| Contract governance | 4.5 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 71.4 |
+| Access clarity | 34.2 |
+
+**Agent readiness 52.5** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | yes |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 33.3** — Insurance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/mireye/](https://apis.io/providers/mireye/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Mireye: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/mireye/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
